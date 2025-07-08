@@ -57,10 +57,40 @@
             transform: translateY(-3px) scale(1.03);
             box-shadow: 0 8px 24px 0 rgba(255, 193, 7, 0.18);
         }
+        .view-counter {
+            margin-top: 2rem;
+            color: #c5cae9;
+            font-size: 1rem;
+        }
+        .fave-games {
+            margin-top: 2.5rem;
+            background: #222a36;
+            padding: 1.2rem 2rem;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
+            max-width: 320px;
+            width: 100%;
+        }
+        .fave-games-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ff3c78;
+            margin-bottom: 0.6rem;
+            text-align: center;
+        }
+        .fave-games-list {
+            list-style: disc inside;
+            color: #c5cae9;
+            font-size: 1.05rem;
+            padding-left: 0;
+            margin: 0;
+            text-align: center;
+        }
         @media (max-width: 600px) {
             h1 { font-size: 2rem; }
             p { font-size: 1rem; }
             .cta-button { font-size: 1rem; padding: 0.8rem 2rem; }
+            .fave-games { max-width: 90vw; padding: 1rem; }
         }
     </style>
 </head>
@@ -79,5 +109,23 @@
     >
         Visit My YouTube Channel
     </a>
+    <div class="view-counter">
+        <span id="views"></span> views
+    </div>
+    <div class="fave-games">
+        <div class="fave-games-title">My Favorite Games</div>
+        <ul class="fave-games-list">
+            <li>Rocket League</li>
+            <li>Titanfall 2</li>
+            <li>Roblox</li>
+        </ul>
+    </div>
+    <script>
+    fetch('https://api.countapi.xyz/hit/thewayswear-myweb2/visits')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('views').innerText = data.value;
+      });
+    </script>
 </body>
 </html>
