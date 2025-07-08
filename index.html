@@ -5,47 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <style>
+        :root {
+            --primary-bg: #181f2a;
+            --primary-text: #fff;
+            --accent: #ff3c78;
+            --button-bg: linear-gradient(90deg, #1976d2 0%, #21cbf3 100%);
+            --button-hover: linear-gradient(90deg, #ffc107 0%, #ff3c78 100%);
+        }
         body {
-            background-color: #111;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
+            background: var(--primary-bg);
+            color: var(--primary-text);
+            font-family: 'Inter', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             margin: 0;
+            padding: 0 1rem;
         }
         h1 {
-            color: #fff;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
         }
         p {
-            font-size: 20px;
-            color: #fff;
-            margin-bottom: 30px;
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            color: #c5cae9;
         }
-        .youtube-link {
-            display: inline-block;
-            padding: 15px 40px;
-            background-color: #1976d2;
+        .cta-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: #fff;
+            background: var(--button-bg);
+            border: none;
+            border-radius: 40px;
+            box-shadow: 0 4px 16px 0 rgba(25, 118, 210, 0.14);
+            cursor: pointer;
             text-decoration: none;
-            font-size: 18px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            transition: background 0.2s, color 0.2s;
-            font-weight: bold;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            outline: none;
+            display: inline-block;
         }
-        .youtube-link:hover {
-            background-color: #ffc107;
+        .cta-button:hover, .cta-button:focus {
+            background: var(--button-hover);
             color: #222;
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 24px 0 rgba(255, 193, 7, 0.18);
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            p { font-size: 1rem; }
+            .cta-button { font-size: 1rem; padding: 0.8rem 2rem; }
         }
     </style>
 </head>
 <body>
     <h1>Welcome to my website!</h1>
-    <p>Go to my YouTube and subscribe! It's very appreciated! Link below:</p>
+    <p>
+        Go to my YouTube and subscribe!<br>
+        It's very appreciated!
+    </p>
     <a
         href="https://www.youtube.com/@Theway-v5z"
         target="_blank"
-        class="youtube-link"
+        rel="noopener"
+        class="cta-button"
         aria-label="Visit my YouTube channel"
     >
         Visit My YouTube Channel
